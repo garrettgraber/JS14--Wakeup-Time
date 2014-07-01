@@ -42,7 +42,8 @@
 	width: 80px;
 	top: 20px;
 	left: 20px;
-	background-color: white;
+	background-color: black;
+	color: white;
 	padding: 0;
 }
 
@@ -61,7 +62,8 @@
 	display: inline;
 	height: 100%;
 	width: 40px;
-	background-color: green;
+	background-color: black;
+	opacity: 0.5;
 
 }
 
@@ -71,16 +73,23 @@
 	height: 100%;
 	width: 440px;
 	left: 40px;
+	text-align: center;
 }
 
 .am-label {
 	top: 200px;
+	/*
 	background-color: yellow;
+	*/
+	color: white;
 }
 
 .fm-label {
 	top: 260px;
+	/*
 	background-color: blue;
+	*/
+	color: white;
 }
 
 .bottom-label {
@@ -110,5 +119,26 @@
 	margin-bottom: 64px;
 	border-radius: 12px;
 	
+}
+
+.radio-label {
+
+	margin-top: 11px;
+	margin-bottom: 11px;
+	letter-spacing: 0.5em;
+	text-align: center;
+}
+
+.display-time {
+	display: inline;
+	font-size: 78pt;
+	font-weight: bold;
+	font-family: arial;
+}
+
+.time-value {
+	text-align: center;
+	margin-top: 22px;
+	margin-bottom: 22px;
 }
 
