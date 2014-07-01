@@ -1,0 +1,114 @@
+
+#main-container {
+	position: absolute;
+	height: 400px;
+	width: 700px;
+	left: 10%;
+	top: 10%;
+	bottom: 5%;
+}
+
+.outer-shell {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: DarkGray;
+}
+
+.inner-shell {
+	position: relative;
+	height: 320px;
+	width: 620px;
+	background-color: black;
+	
+	margin-top: 40px;
+	margin-bottom: 40px;
+	margin-right: 40px;
+	margin-left: 40px;
+	top: 40px;
+	/*
+	top: 5%; left: 0; bottom: 5%; right: 0;
+	
+	margin-right: 5%;
+	top: 5%;
+	bottom: 5%;
+	*/
+}
+
+.auto-label {
+	position: absolute;
+	display: inline;
+	height: 160px;
+	width: 80px;
+	top: 20px;
+	left: 20px;
+	background-color: white;
+	padding: 0;
+}
+
+.clock-screen {
+	position: absolute;
+	display: inline;
+	height: 160px;
+	width: 480px;
+	left: 120px;
+	top: 20px;
+	background-color: red;
+}
+
+.clock-indicator {
+	position: absolute;
+	display: inline;
+	height: 100%;
+	width: 40px;
+	background-color: green;
+
+}
+
+.clock-text {
+	position: absolute;
+	display: inline;
+	height: 100%;
+	width: 440px;
+	left: 40px;
+}
+
+.am-label {
+	top: 200px;
+	background-color: yellow;
+}
+
+.fm-label {
+	top: 260px;
+	background-color: blue;
+}
+
+.bottom-label {
+	position: absolute;
+	display: block;
+	height: 40px;
+	width: 480px;
+	left: 120px;
+}
+
+.time-label {
+	text-align: center;
+	font-size: 16pt;
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+
+.time-shift {
+	position: relative;
+	display: block;
+	height: 24px;
+	width: 24px;
+	background-color: red;
+	left: 8px;
+	top: 24px;
+	
+	margin-bottom: 64px;
+	border-radius: 12px;
+	
+}
+
