@@ -13,6 +13,7 @@
 	height: 100%;
 	width: 100%;
 	background-color: DarkGray;
+	border-radius: 20px;
 }
 
 .inner-shell {
@@ -26,6 +27,7 @@
 	margin-right: 40px;
 	margin-left: 40px;
 	top: 40px;
+	border-radius: 8px;
 	/*
 	top: 5%; left: 0; bottom: 5%; right: 0;
 	
@@ -55,6 +57,7 @@
 	left: 120px;
 	top: 20px;
 	background-color: red;
+	border-radius: 8px;
 }
 
 .clock-indicator {
@@ -62,9 +65,9 @@
 	display: inline;
 	height: 100%;
 	width: 40px;
-	background-color: black;
+	background-color: DarkRed;
 	opacity: 0.5;
-
+	z-index: 2;
 }
 
 .clock-text {
@@ -112,12 +115,12 @@
 	display: block;
 	height: 24px;
 	width: 24px;
-	background-color: red;
 	left: 8px;
 	top: 24px;
 	
 	margin-bottom: 64px;
 	border-radius: 12px;
+	z-index: 10;
 	
 }
 

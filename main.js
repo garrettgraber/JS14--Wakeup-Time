@@ -20,7 +20,7 @@ var createClock = function() {
 	clockIndicatorJqueryObj.append('<div id="time-am" class="time-shift"></div>');
 	clockIndicatorJqueryObj.append('<div id="time-pm" class="time-shift"></div>');
 	
-	timeJqueryObj.append('<p id="hours-time" class="display-time">22</p><p class="display-time">:</p><p id="minutes-time" class="display-time">10</p><p class="display-time">:</p><p id="seconds-time" class="display-time">10</p>');
+	timeJqueryObj.append('<p id="hours-time" class="display-time"></p><p class="display-time">:</p><p id="minutes-time" class="display-time"></p><p class="display-time">:</p><p id="seconds-time" class="display-time"></p>');
 
 	timeJqueryObj.appendTo(clockTextJqueryObj);
 
@@ -39,17 +39,24 @@ var createClock = function() {
 	return outerShellJqueryObj;
 };
 
-var timeGo = function() {
+var timeGo = function(hours, minutes, seconds, amStatus) {
 
-	var hours = 0;
-	var minutes = 59;
-	var seconds = 55;
-	var amStatus = true;
+	setTime(hours, minutes, seconds);
+
+	if (hours === 0) {
+		hours = 12;
+	}
+
+	setAmPmDots(amStatus);
 
 	window.setInterval(function() {
 		seconds += 1;
 		var previousMinute = minutes;
 		var previousHour = hours;
+		if ( (seconds === 60) && (minutes === 59) && (hours === 11) ) {
+			amStatus = !amStatus;
+			setAmPmDots(amStatus);
+		}
 		if (seconds === 60) {
 			minutes += 1;
 			seconds = 0;
@@ -60,16 +67,8 @@ var timeGo = function() {
 		}
 		if (hours === 13) {
 			hours = 1;
-			amStatus = !amStatus;
-			if (amStatus === true) {
-				$('#time-pm').css('backgroundColor', 'black');
-				$('#time-am').css('backgroundColor', 'red');
-			}
-			else {
-				$('#time-am').css('backgroundColor', 'black');
-				$('#time-pm').css('backgroundColor', 'red');
-			}
 		}
+		
 		var secondsDisplay = changeToDouble(seconds);
 		var minutesDisplay = changeToDouble(minutes);
 		var hoursDisplay = changeToDouble(hours);
@@ -86,6 +85,17 @@ var timeGo = function() {
 
 };
 
+var setTime = function(inHours, inMintues, inSeconds) {
+
+	var secondsDisplay = changeToDouble(inSeconds);
+	var minutesDisplay = changeToDouble(inMintues);
+	var hoursDisplay = changeToDouble(inHours);
+
+	$('#seconds-time').text(secondsDisplay);
+	$('#minutes-time').text(minutesDisplay);
+	$('#hours-time').text(hoursDisplay);
+};
+
 var changeToDouble = function(inValue) {
 	var outValue;
 	if (inValue < 10) {
@@ -97,12 +107,29 @@ var changeToDouble = function(inValue) {
 	return outValue;
 };
 
+var setAmPmDots = function(amStatus) {
+	if (amStatus === true) {
+		$('#time-pm').css('backgroundColor', 'black');
+		$('#time-pm').css( {'opacity': 1.0} );
+		$('#time-am').css('backgroundColor', 'red');
+	}
+	else {
+		$('#time-am').css('backgroundColor', 'black');
+		$('#time-am').css( {'opacity':1.0} );
+		$('#time-pm').css('backgroundColor', 'red');
+	}
+};
+
 $(document).on('ready', function() {
 
 	var domJqueryObjects = createClock();
 	console.log(domJqueryObjects);
 	domJqueryObjects.appendTo('#main-container');
 
-	timeGo();
+	var hours = 11;
+	var minutes = 59;
+	var seconds = 55;
+	var amStatus = true;
+	timeGo(hours, minutes, seconds, amStatus);
   
 });
